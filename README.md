@@ -300,6 +300,8 @@ npm run build
 - `cd dist`
 - and run with server, I've used `live-server`
 
+**Note** I've removed the `dist` folder from the `.gitignore` so that we can see what is the build output without cloning the repo.
+
 # Component communication (Another example)
 
 ![image-20211126091925001](image-20211126091925001.png)
