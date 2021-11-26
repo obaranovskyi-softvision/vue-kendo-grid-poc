@@ -1,0 +1,19 @@
+{
+  "name": "vue-ce-kendo-grid",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@progress/kendo-data-query": "^1.5.5",
+    "@progress/kendo-theme-default": "^4.42.0",
+    "@progress/kendo-vue-grid": "^2.6.3",
+    "vue": "^3.2.16"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.3",
+    "vite": "^2.6.4"
+  }
+}
