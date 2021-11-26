@@ -300,5 +300,71 @@ npm run build
 - `cd dist`
 - and run with server, I've used `live-server`
 
+# Component communication (Another example)
 
+![image-20211126091925001](image-20211126091925001.png)
 
+### Vue component implementation
+```html
+<template>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <h1>Vue custom element POC</h1>
+  <button @click="sayHelloTo">Say hello</button>
+  <button @click="$emit('custom-user-event', { text: 'Data from the vue component' })">Emit Custom Component</button>
+</template>
+
+<script>
+export default {
+  name: 'say-hello',
+  props: {
+    username: {
+      default: '<Unknown>',
+      type: String
+    }
+  },
+  methods: {
+    sayHelloTo() {
+      alert(`Hello, ${this.username}`);
+    }
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+```
+### Usage in html:
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <script type="module" crossorigin src="/assets/index.1cf7c8e8.js"></script>
+    <link rel="modulepreload" href="/assets/vendor.fa538ac3.js">
+    <link rel="stylesheet" href="/assets/index.06d14ce2.css">
+  </head>
+  <body>
+    <say-hello></say-hello>
+    
+  <script>
+    window.onload =  () => {
+      const element = document.getElementsByTagName("say-hello")[0];
+      element.addEventListener("custom-user-event", (d) => {
+        alert("Custom user event handled from outside: " + d.detail[0].text);
+      });
+    };
+  </script>
+  </body>
+</html>
+```
