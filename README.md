@@ -1,4 +1,4 @@
-# Vue 3 + Vite - Custom Elements
+# Vue 3 + Vite + Kendo - Custom Elements
 
 ![image-20211126090835803](image-20211126090835803.png)
 
